@@ -3,14 +3,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-body {
   font-family: "Poppins", sans-serif;
+}
+body,
+html {
+  height: 100vh;
+  background-color: rgba(28, 28, 36, 1);
 }
 
 /* Header stylings */
 
 header {
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,4 +59,60 @@ nav a {
 }
 .btn-register {
   background-color: rgba(225, 70, 88, 1);
+}
+/* header styling ends here */
+
+.hero {
+  background-color: rgba(28, 28, 36, 1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 70px;
+  padding: 40px;
+}
+.card {
+  height: 350px;
+  width: 200px;
+  border: 1px solid #35353f;
+  border-radius: 10px;
+}
+.postercontainer {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+.poster {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.title {
+  font-size: 16px;
+  height: 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  padding: 0 5px;
+  /* line-height: 20px; */
+}
+.location-time {
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dot {
+  height: 10px;
+  padding: 0 4px;
 }
