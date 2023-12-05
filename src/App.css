@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Header stylings */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgba(37, 45, 60, 1);
+  padding: 10px 100px;
+}
+.logo {
+  height: 40px;
+}
+nav {
+  /* display: flex; */
+  /* height: 80px; */
+  /* background-color: rgba(28, 28, 36, 1); */
+  /* background-color: rgba(37, 45, 60, 1); */
+}
+nav ul {
+  display: flex;
+  gap: 32px;
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
   color: white;
 }
+.auth-buttons {
+  display: flex;
 
-.App-link {
-  color: #61dafb;
+  gap: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-buttons .btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+.btn-login {
+  background-color: transparent;
+}
+.btn-register {
+  background-color: rgba(225, 70, 88, 1);
 }
