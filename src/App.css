@@ -4,17 +4,12 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-}
-body,
-html {
-  height: 100vh;
-  background-color: rgba(28, 28, 36, 1);
+  color: white;
 }
 
 /* Header stylings */
 
 header {
-  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,23 +61,26 @@ nav a {
   background-color: rgba(28, 28, 36, 1);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   gap: 70px;
-  padding: 40px;
+  padding: 40px 80px;
+}
+.hero1 {
+  background-color: rgba(28, 28, 36, 1);
+  height: 100vh;
 }
 .card {
-  height: 350px;
-  width: 200px;
+  height: 400px;
+  width: 250px;
   border: 1px solid #35353f;
   border-radius: 10px;
 }
 .postercontainer {
-  height: 250px;
+  height: 300px;
   width: 100%;
   overflow: hidden;
 }
 .poster {
-  width: 200px;
+  width: 247px;
   height: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
@@ -92,7 +90,7 @@ nav a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 0;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
   color: white;
@@ -102,17 +100,108 @@ nav a {
   height: 40px;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  padding: 0 5px;
-  /* line-height: 20px; */
 }
 .location-time {
   font-size: 10px;
   font-weight: 500;
   display: flex;
+  gap: 10px;
   justify-content: center;
   align-items: center;
 }
 .dot {
   height: 10px;
   padding: 0 4px;
+}
+.card:hover .poster {
+  width: 240px; /* Change the width of .poster when .card is hovered */
+  padding: 0;
+}
+
+/* hero2 
+event-details event-info info-text info-text-1 info-text-2
+*/
+
+.event-detail {
+  border: 2px solid paleturquoise;
+  padding: 20px 50px;
+  background-color: rgba(37, 45, 60, 1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-info {
+  /* padding: 40px 0; */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.icon-container {
+  background: rgb(25 25 36);
+  padding: 15px;
+  border-radius: 100%;
+}
+.icon-container img {
+  width: 40px;
+  height: auto;
+}
+.info-text-1 {
+  font-size: 20px;
+}
+.info-text-2 {
+  font-size: 14px;
+}
+
+.event-info a {
+  text-decoration: none;
+  color: red;
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+.ticket-num {
+  color: rgba(151, 171, 192, 1);
+}
+.ticket-price {
+  font-size: 22px;
+  font-weight: bold;
+}
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+}
+.ticket-n-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter-btn {
+  background-color: transparent;
+  padding: 10px 15px;
+  border: none;
+  background: rgb(25 25 36);
+  border-radius: 10px;
+}
+.counter-btn:hover {
+  background-color: red;
+}
+
+.ticket-count {
+  padding: 0 10px;
+  font-size: 18px;
+}
+.checkout-btn {
+  background-color: red;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
 }
