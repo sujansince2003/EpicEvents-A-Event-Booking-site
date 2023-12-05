@@ -120,6 +120,19 @@ function App() {
         </div>
       </section> */}
       <section className="hero1">
+        <div className="card">
+          <div className="postercontainer">
+            <img className="poster" src="/assets/poster.jpg" alt="" />
+          </div>
+          <div className="info">
+            <span className="title">Ultimate Avengers: The Movie</span>
+            <div className="location-time">
+              <span>December 20,2023</span>
+              <img className="dot" src="/assets/dot.png" alt="" />
+              <span>Pokhara,Nepal</span>
+            </div>
+          </div>
+        </div>
         <div className="event-detail ">
           <h1>Event Details</h1>
           <div className="event-info">

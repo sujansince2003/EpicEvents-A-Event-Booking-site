@@ -64,10 +64,7 @@ nav a {
   gap: 70px;
   padding: 40px 80px;
 }
-.hero1 {
-  background-color: rgba(28, 28, 36, 1);
-  height: 100vh;
-}
+
 .card {
   height: 400px;
   width: 250px;
@@ -113,68 +110,111 @@ nav a {
   height: 10px;
   padding: 0 4px;
 }
-.card:hover .poster {
-  width: 240px; /* Change the width of .poster when .card is hovered */
+/* .card:hover .poster {
+  width: 240px; // Change the width of .poster when .card is hovered 
   padding: 0;
-}
+} */
 
 /* hero2 
 event-details event-info info-text info-text-1 info-text-2
 */
 
+.hero1 {
+  background-color: rgba(28, 28, 36, 1);
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 200px 180px;
+}
+
 .event-detail {
-  border: 2px solid paleturquoise;
-  padding: 20px 50px;
+  border: 1px solid rgba(37, 45, 60, 1);
+  padding: 24px;
   background-color: rgba(37, 45, 60, 1);
-  width: 400px;
+  width: 470px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 24px;
+}
+.event-detail h1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+hr {
+  width: 410px;
+  border: 1px solid rgb(50, 58, 73);
 }
 
 .event-info {
   /* padding: 40px 0; */
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 .icon-container {
   background: rgb(25 25 36);
   padding: 15px;
   border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .icon-container img {
-  width: 40px;
+  width: 24px;
   height: auto;
 }
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .info-text-1 {
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(151, 171, 192, 1);
+  font-weight: 400;
 }
 .info-text-2 {
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
 }
 
 .event-info a {
   text-decoration: none;
   color: red;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 4px 0;
+}
+
+.event-info h3 {
+  font-size: 24px;
+  line-height: 32px;
 }
 
 .ticket {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   justify-content: space-between;
 }
 .ticket-num {
   color: rgba(151, 171, 192, 1);
+  font-size: 18px;
+  line-height: 28px;
 }
 .ticket-price {
-  font-size: 22px;
+  font-size: 24px;
+  line-height: 32px;
   font-weight: bold;
 }
 .ticket-info {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 .ticket-n-counter {
   display: flex;
@@ -199,9 +239,10 @@ event-details event-info info-text info-text-1 info-text-2
 }
 .checkout-btn {
   background-color: red;
-  height: 40px;
+  height: 48px;
   border: none;
   border-radius: 10px;
   font-size: 16px;
+  line-height: 24px;
   font-weight: 700;
 }
