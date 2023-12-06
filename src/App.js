@@ -3,15 +3,17 @@ import "./App.css";
 import Header from "./components/screen1/Header";
 import Home from "./components/screen1/Home";
 import EventDetails from "./components/screen2/EventDetails";
+import Ordersummary from "./components/screen3/Ordersummary";
 
 function App() {
   return (
     <>
       <Header />
       <Home />
-
       <EventDetails />
-      <section className="hero3">
+      <Ordersummary />
+
+      {/* <section className="hero3">
         <div className="breadcumb">
           <p className="breadcumb-text">
             hello/hello/hello/hello/hello/hello/hello/
@@ -179,7 +181,7 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
