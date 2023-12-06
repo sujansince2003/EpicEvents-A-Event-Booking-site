@@ -18,7 +18,7 @@ function Card({
           EventDate,
         };
         setEventdata(() => eventdetail);
-        navigate("detail");
+        navigate("details");
       }}
     >
       <div className="postercontainer">

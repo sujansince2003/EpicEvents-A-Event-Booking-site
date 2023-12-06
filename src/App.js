@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -33,7 +34,7 @@ function App() {
             element={<Home events={events} setEventdata={setEventdata} />}
           />
           <Route
-            path="detail"
+            path="/details"
             element={
               <EventDetails
                 eventdata={eventdata}
@@ -46,12 +47,13 @@ function App() {
           />
 
           <Route
-            path="checkout"
+            path="details/checkout"
             element={
               <Ordersummary
                 price={price}
                 totalprice={totalprice}
                 eventdata={eventdata}
+                ticketcount={ticketcount}
               />
             }
           />
@@ -231,3 +233,5 @@ function App() {
 }
 
 export default App;
+
+//

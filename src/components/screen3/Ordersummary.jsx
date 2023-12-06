@@ -1,4 +1,9 @@
-function Ordersummary({ totalprice, price, eventdata }) {
+import { useState } from "react";
+
+import FormComp from "./FormComp";
+import { NavLink } from "react-router-dom";
+
+function Ordersummary({ totalprice, price, eventdata, ticketcount }) {
   console.log(eventdata);
   let normalPrice = price;
   let dispercent = 5;
@@ -7,12 +12,23 @@ function Ordersummary({ totalprice, price, eventdata }) {
   let disamt = dispercent > 0 ? (dispercent / 100) * (subtotal + taxamt) : 0;
   let total = subtotal + taxamt - disamt;
 
+  const [userinfo, setuserinfo] = useState();
+
+  console.log(userinfo);
   return (
     <section className="hero3">
+      <pre>{JSON.stringify(userinfo, undefined, 2)}</pre>
       <div className="breadcumb">
         <p className="breadcumb-text">
-          Home / Explore Event / {eventdata.Title}/{" "}
-          <span className="checkout-txt">Checkout</span>
+          Home /{" "}
+          <span>
+            <NavLink to="/">Explore events</NavLink>
+          </span>{" "}
+          /
+          <span>
+            <NavLink to="/details">{eventdata.Title}</NavLink>
+          </span>
+          /<span className="checkout-txt">Checkout</span>
         </p>
       </div>
       <div className="order-info">
@@ -23,84 +39,7 @@ function Ordersummary({ totalprice, price, eventdata }) {
         <div className="box">
           <div className="infox">
             <h1>Information</h1>
-            <form>
-              <div className="form-1">
-                <label className="label-text">Full name*</label> <br />
-                <input
-                  type="text"
-                  id="fname"
-                  name="fname"
-                  className="full-width-input"
-                  placeholder="eg:john doe"
-                />
-              </div>
-              <div className="form-half">
-                <div className="form-1">
-                  <label className="label-text">E-mail*</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-                <div className="form-1">
-                  <label className="label-text">Address*</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-              </div>
-              <div className="form-half">
-                <div className="form-1">
-                  <label className="label-text">Country*</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-                <div className="form-1">
-                  <label className="label-text">State</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-              </div>
-              <div className="form-half">
-                <div className="form-1">
-                  <label className="label-text">City</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-                <div className="form-1">
-                  <label className="label-text">Zip/Postal Code *</label> <br />
-                  <input
-                    type="text"
-                    id="fname"
-                    name="fname"
-                    className="half-width-input"
-                    placeholder="eg:john doe"
-                  />
-                </div>
-              </div>
-            </form>
+            <FormComp setuserinfo={setuserinfo} />
           </div>
 
           <div className="summary">
@@ -121,7 +60,7 @@ function Ordersummary({ totalprice, price, eventdata }) {
               <div className="moneyline-div">
                 <div className="moneyline">
                   <span className="money-line-txt">Normal</span>
-                  <span>X2</span>
+                  <span>X{ticketcount}</span>
                   <span className="amt">${normalPrice}</span>
                 </div>
                 <div className="moneyline">
@@ -152,7 +91,9 @@ function Ordersummary({ totalprice, price, eventdata }) {
               </div>
             </div>
             <hr className="hr-4" />
-            <button className="checkout-btn">Confirm & Pay</button>
+            <button type="submit" form="a-form" className="checkout-btn">
+              Confirm & Pay
+            </button>
           </div>
         </div>
       </div>
