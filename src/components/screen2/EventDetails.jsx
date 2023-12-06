@@ -108,6 +108,7 @@ function TicketnCounter({ ticketcount, setticketcount, price }) {
         </button>
         <span className="ticket-count">{ticketcount}</span>
         <button
+          disabled={ticketcount >= 10 ? true : false}
           className="counter-btn btn-inc"
           value="inc"
           onClick={(e) => handleCounter(e.target.value)}
