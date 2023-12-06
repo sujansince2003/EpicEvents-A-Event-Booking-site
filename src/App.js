@@ -1,184 +1,182 @@
 import "./App.css";
 
+import Header from "./components/screen1/Header";
+import Home from "./components/screen1/Home";
+import EventDetails from "./components/screen2/EventDetails";
+
 function App() {
   return (
     <>
-      <header>
-        <img className="logo" src="/assets/logo4.png" alt="" />
-        <nav>
-          <ul>
-            <li>
-              <a href="/#">Home</a>
-            </li>
-            <li>
-              <a href="/#">Concerts</a>
-            </li>
-            <li>
-              <a href="/#">Movies</a>
-            </li>
-            <li>
-              <a href="/#">Threater shows</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="auth-buttons">
-          <button className="btn btn-login">Login</button>
-          <button className="btn btn-register">Register</button>
+      <Header />
+      <Home />
+
+      <EventDetails />
+      <section className="hero3">
+        <div className="breadcumb">
+          <p className="breadcumb-text">
+            hello/hello/hello/hello/hello/hello/hello/
+          </p>
         </div>
-      </header>
-      {/* <section className="hero">
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
+        <div className="order-info">
+          <div>
+            <p className="order-info-confirm">Order Confirmation</p>
           </div>
-          <div className="info">
-            <p className="title">Ultimate Avengers: The Movie</p>
-            <div className="location-time">
-              <p>December 20,2023</p>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <p>Pokhara,Nepal</p>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      <section className="hero1">
-        <div className="card">
-          <div className="postercontainer">
-            <img className="poster" src="/assets/poster.jpg" alt="" />
-          </div>
-          <div className="info">
-            <span className="title">Ultimate Avengers: The Movie</span>
-            <div className="location-time">
-              <span>December 20,2023</span>
-              <img className="dot" src="/assets/dot.png" alt="" />
-              <span>Pokhara,Nepal</span>
-            </div>
-          </div>
-        </div>
-        <div className="event-detail ">
-          <h1>Event Details</h1>
-          <div className="event-info">
-            <div className="icon-container">
-              <img
-                className="event-info-icon"
-                src="assets/eventicon.png"
-                alt=""
-              />
-            </div>
-            <div className="info-text">
-              <p className="info-text-1">Date & Time</p>
-              <p className="info-text-2">Sat, Dec 30, 2023 11:30 AM</p>
-            </div>
-          </div>
-          <hr />
-          <div className="event-info">
-            <div className="icon-container">
-              <img
-                className="event-info-icon"
-                src="assets/locationicon.png"
-                alt=""
-              />
-            </div>
-            <div className="info-text">
-              <p className="info-text-1">Location</p>
-              <p className="info-text-2">Kathmandu,Nepal</p>
-              <a href="/#">view on map</a>
-            </div>
-          </div>
-          <hr />
-          <h3>Select Tickets</h3>
-          <div className="ticket">
-            <div className="ticket-n-counter">
-              <div className="ticket-info">
-                <span className="ticket-num">1x tickets</span>
-                <span className="ticket-price"> USD $500.00</span>
-              </div>
-              <div className="counter">
-                <button className="counter-btn btn-dec">-</button>
-                <span className="ticket-count">2</span>
-                <button className="counter-btn btn-inc">+</button>
-              </div>
+          <hr className="hr-3" />
+          <div className="box">
+            <div className="infox">
+              <h1>Information</h1>
+              <form>
+                <div className="form-1">
+                  <label for="fname" className="label-text">
+                    Full name*
+                  </label>{" "}
+                  <br />
+                  <input
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    class="full-width-input"
+                    placeholder="eg:john doe"
+                  />
+                </div>
+                <div className="form-half">
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      E-mail*
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      Address*
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                </div>
+                <div className="form-half">
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      Country*
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      State
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                </div>
+                <div className="form-half">
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      City
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                  <div className="form-1">
+                    <label for="fname" className="label-text">
+                      Zip/Postal Code *
+                    </label>{" "}
+                    <br />
+                    <input
+                      type="text"
+                      id="fname"
+                      name="fname"
+                      class="half-width-input"
+                      placeholder="eg:john doe"
+                    />
+                  </div>
+                </div>
+              </form>
             </div>
 
-            <button className="checkout-btn">Checkout for $1000.00</button>
+            <div className="summary">
+              <div className="summary-text">
+                <p className="summary-text-p">Checkout Summary</p>
+              </div>
+              <hr className="hr-4" />
+              <div className="event-info-summary">
+                <p className="event-info-summary-title">
+                  Intersellar the dawn of worls
+                </p>
+                <div className="location-time">
+                  <p>Movie</p>
+                  <img className="dot" src="/assets/dot.png" alt="" />
+                  <p>Pokhara,Nepal</p>
+                </div>
+              </div>
+              <hr className="hr-4" />
+              <div className="cost">
+                <div className="moneyline-div">
+                  <div className="moneyline">
+                    <span className="money-line-txt">Normal</span>
+                    <span>X2</span>
+                    <span className="amt">$5000</span>
+                  </div>
+                  <div className="moneyline">
+                    <span className="money-line-txt">Sub-total</span>
+
+                    <span className="amt">$5000</span>
+                  </div>
+                  <div className="moneyline">
+                    <span className="money-line-txt">Tax( 13%)</span>
+
+                    <span className="amt">$5000</span>
+                  </div>
+                  <div className="moneyline">
+                    <span className="money-line-txt">Discunt(0%)</span>
+
+                    <span className="amt">$5000</span>
+                  </div>
+                  <hr className="hr-4" />
+                </div>
+                <div className="moneyline">
+                  <span className="moneyline-total money-line-txt ">Total</span>
+                  <span className="currency-total">
+                    <span className="currency">USD</span>
+                    <span className="moneyline-total-amt amt">$5000</span>
+                  </span>
+                </div>
+              </div>
+              <hr className="hr-4" />
+              <button className="checkout-btn">Confirm & Pay</button>
+            </div>
           </div>
         </div>
       </section>
