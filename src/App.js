@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Header from "./components/screen1/Header";
@@ -24,22 +25,38 @@ function App() {
   }, []);
   return (
     <>
-      <Header />
-      <Home events={events} setEventdata={setEventdata} />
-      <EventDetails
-        eventdata={eventdata}
-        ticketcount={ticketcount}
-        price={price}
-        setticketcount={setticketcount}
-        settotalprice={settotalprice}
-      />
-      <button>send props</button>
-      <Ordersummary
-        price={price}
-        totalprice={totalprice}
-        eventdata={eventdata}
-      />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home events={events} setEventdata={setEventdata} />}
+          />
+          <Route
+            path="detail"
+            element={
+              <EventDetails
+                eventdata={eventdata}
+                ticketcount={ticketcount}
+                price={price}
+                setticketcount={setticketcount}
+                settotalprice={settotalprice}
+              />
+            }
+          />
 
+          <Route
+            path="checkout"
+            element={
+              <Ordersummary
+                price={price}
+                totalprice={totalprice}
+                eventdata={eventdata}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
       {/* <section className="hero3">
         <div className="breadcumb">
           <p className="breadcumb-text">

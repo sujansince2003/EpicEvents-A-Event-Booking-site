@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 function Card({
   Event,
   EventLocation = "Kathmandu,Nepal",
@@ -5,6 +7,7 @@ function Card({
   setEventdata,
 }) {
   //   console.log(Event);
+  const navigate = useNavigate();
   return (
     <div
       className="card"
@@ -15,6 +18,7 @@ function Card({
           EventDate,
         };
         setEventdata(() => eventdetail);
+        navigate("detail");
       }}
     >
       <div className="postercontainer">

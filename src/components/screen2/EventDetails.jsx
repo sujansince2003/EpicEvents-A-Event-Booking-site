@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 function EventDetails({
   eventdata,
@@ -16,6 +17,7 @@ function EventDetails({
   useEffect(() => {
     calculateTotalPrice();
   }, [calculateTotalPrice]);
+  const navigate = useNavigate();
 
   //   console.log(eventdata);
   return (
@@ -75,7 +77,7 @@ function EventDetails({
             setticketcount={setticketcount}
           />
 
-          <button className="checkout-btn">
+          <button className="checkout-btn" onClick={() => navigate("checkout")}>
             Checkout for ${price * ticketcount}.00
           </button>
         </div>
