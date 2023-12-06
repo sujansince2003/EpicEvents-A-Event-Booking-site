@@ -21,12 +21,7 @@ header {
 .logo {
   height: 40px;
 }
-nav {
-  /* display: flex; */
-  /* height: 80px; */
-  /* background-color: rgba(28, 28, 36, 1); */
-  /* background-color: rgba(37, 45, 60, 1); */
-}
+
 nav ul {
   display: flex;
   gap: 32px;
@@ -270,6 +265,9 @@ hr {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+}
+.checkout-txt {
+  color: red;
 }
 .order-info {
   padding: 40px 100px;

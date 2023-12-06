@@ -1,17 +1,44 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/screen1/Header";
 import Home from "./components/screen1/Home";
 import EventDetails from "./components/screen2/EventDetails";
 import Ordersummary from "./components/screen3/Ordersummary";
-
+const API_URL = "https://www.omdbapi.com/?apikey=35f704b1";
 function App() {
+  const [events, setEvents] = useState([]); //events i.e movie here are fetched from API
+  const [eventdata, setEventdata] = useState({}); //setting state for screen 2 i.e for individual eventdetails and ticketing
+  let price = 500;
+  const [ticketcount, setticketcount] = useState(1);
+  const [totalprice, settotalprice] = useState(price);
+  console.log(totalprice);
+  const searchEvents = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+    setEvents(data.Search);
+  };
+
+  useEffect(() => {
+    searchEvents("avengers");
+  }, []);
   return (
     <>
       <Header />
-      <Home />
-      <EventDetails />
-      <Ordersummary />
+      <Home events={events} setEventdata={setEventdata} />
+      <EventDetails
+        eventdata={eventdata}
+        ticketcount={ticketcount}
+        price={price}
+        setticketcount={setticketcount}
+        settotalprice={settotalprice}
+      />
+      <button>send props</button>
+      <Ordersummary
+        price={price}
+        totalprice={totalprice}
+        eventdata={eventdata}
+      />
 
       {/* <section className="hero3">
         <div className="breadcumb">

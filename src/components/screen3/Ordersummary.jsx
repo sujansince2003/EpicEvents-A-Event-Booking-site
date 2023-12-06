@@ -1,9 +1,18 @@
-function Ordersummary() {
+function Ordersummary({ totalprice, price, eventdata }) {
+  console.log(eventdata);
+  let normalPrice = price;
+  let dispercent = 5;
+  let subtotal = totalprice;
+  let taxamt = (13 / 100) * subtotal;
+  let disamt = dispercent > 0 ? (dispercent / 100) * (subtotal + taxamt) : 0;
+  let total = subtotal + taxamt - disamt;
+
   return (
     <section className="hero3">
       <div className="breadcumb">
         <p className="breadcumb-text">
-          hello/hello/hello/hello/hello/hello/hello/
+          Home / Explore Event / {eventdata.Title}/{" "}
+          <span className="checkout-txt">Checkout</span>
         </p>
       </div>
       <div className="order-info">
@@ -16,98 +25,77 @@ function Ordersummary() {
             <h1>Information</h1>
             <form>
               <div className="form-1">
-                <label for="fname" className="label-text">
-                  Full name*
-                </label>{" "}
-                <br />
+                <label className="label-text">Full name*</label> <br />
                 <input
                   type="text"
                   id="fname"
                   name="fname"
-                  class="full-width-input"
+                  className="full-width-input"
                   placeholder="eg:john doe"
                 />
               </div>
               <div className="form-half">
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    E-mail*
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">E-mail*</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    Address*
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">Address*</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
               </div>
               <div className="form-half">
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    Country*
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">Country*</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    State
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">State</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
               </div>
               <div className="form-half">
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    City
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">City</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
                 <div className="form-1">
-                  <label for="fname" className="label-text">
-                    Zip/Postal Code *
-                  </label>{" "}
-                  <br />
+                  <label className="label-text">Zip/Postal Code *</label> <br />
                   <input
                     type="text"
                     id="fname"
                     name="fname"
-                    class="half-width-input"
+                    className="half-width-input"
                     placeholder="eg:john doe"
                   />
                 </div>
@@ -121,13 +109,11 @@ function Ordersummary() {
             </div>
             <hr className="hr-4" />
             <div className="event-info-summary">
-              <p className="event-info-summary-title">
-                Intersellar the dawn of worls
-              </p>
+              <p className="event-info-summary-title">{eventdata.Title}</p>
               <div className="location-time">
                 <p>Movie</p>
                 <img className="dot" src="/assets/dot.png" alt="" />
-                <p>Pokhara,Nepal</p>
+                <p>{eventdata.EventLocation}</p>
               </div>
             </div>
             <hr className="hr-4" />
@@ -136,22 +122,24 @@ function Ordersummary() {
                 <div className="moneyline">
                   <span className="money-line-txt">Normal</span>
                   <span>X2</span>
-                  <span className="amt">$5000</span>
+                  <span className="amt">${normalPrice}</span>
                 </div>
                 <div className="moneyline">
                   <span className="money-line-txt">Sub-total</span>
 
-                  <span className="amt">$5000</span>
+                  <span className="amt">${subtotal}</span>
                 </div>
                 <div className="moneyline">
                   <span className="money-line-txt">Tax( 13%)</span>
 
-                  <span className="amt">$5000</span>
+                  <span className="amt">${taxamt}</span>
                 </div>
                 <div className="moneyline">
-                  <span className="money-line-txt">Discunt(0%)</span>
+                  <span className="money-line-txt">
+                    Discount({dispercent}%)
+                  </span>
 
-                  <span className="amt">$5000</span>
+                  <span className="amt">${disamt}</span>
                 </div>
                 <hr className="hr-4" />
               </div>
@@ -159,7 +147,7 @@ function Ordersummary() {
                 <span className="moneyline-total money-line-txt ">Total</span>
                 <span className="currency-total">
                   <span className="currency">USD</span>
-                  <span className="moneyline-total-amt amt">$5000</span>
+                  <span className="moneyline-total-amt amt">${total}</span>
                 </span>
               </div>
             </div>

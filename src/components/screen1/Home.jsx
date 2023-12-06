@@ -1,15 +1,17 @@
 import Card from "./Card";
-function Home() {
+function Home({ events, setEventdata }) {
   return (
     <>
       <section className="hero">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {events.map((Event) => (
+          <Card
+            key={Event.imdbID}
+            Event={Event}
+            EventDate={`Dec 14, ${Event.Year}`}
+            EventLocation="Butwal,Nepal"
+            setEventdata={setEventdata}
+          />
+        ))}
       </section>
     </>
   );

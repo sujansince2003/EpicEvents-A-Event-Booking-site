@@ -1,15 +1,31 @@
-function Card({ eventTitle, eventDate, eventLocation, eventPoster }) {
+function Card({
+  Event,
+  EventLocation = "Kathmandu,Nepal",
+  EventDate = "Dec 20, ",
+  setEventdata,
+}) {
+  //   console.log(Event);
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        const eventdetail = {
+          ...Event,
+          EventLocation,
+          EventDate,
+        };
+        setEventdata(() => eventdetail);
+      }}
+    >
       <div className="postercontainer">
-        <img className="poster" src="/assets/poster.jpg" alt="" />
+        <img className="poster" src={Event.Poster} alt="" />
       </div>
       <div className="info">
-        <p className="title">Ultimate Avengers: The Movie</p>
+        <p className="title">{Event.Title}</p>
         <div className="location-time">
-          <p>December 20,2023</p>
+          <p>{EventDate}</p>
           <img className="dot" src="/assets/dot.png" alt="" />
-          <p>Pokhara,Nepal</p>
+          <p>{EventLocation}</p>
         </div>
       </div>
     </div>
