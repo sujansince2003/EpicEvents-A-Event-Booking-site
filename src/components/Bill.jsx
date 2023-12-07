@@ -147,7 +147,7 @@ const BillPDF = () => {
                 gap: "1px",
               }}
             >
-              <Text style={styles.tickettext}>Total: </Text>
+              <Text style={styles.tickettext}>Total(inc.VAT): </Text>
               <Text style={{ fontSize: "12px", fontWeight: "bold" }}>
                 $ {invoicedata.total / invoicedata.ticketcount || 0.0}
               </Text>
