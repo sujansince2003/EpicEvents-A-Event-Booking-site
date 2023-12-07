@@ -1,9 +1,14 @@
                                      # EpicEvents-A Event Booking Site
+<<<<<<< HEAD
 
 #### Date of completion: 7 Dec 2023 |
 
 #### Check Live Website: https://epicevents-suzancodes.netlify.app/ |
 
+=======
+#### Date of completion: 7 Dec 2023 | 
+#### Check Live Website: https://epicevents-suzancodes.netlify.app/ |
+>>>>>>> d5c7e8d7e89eb549e6f0e82b0567c135bbe642ed
 <div id="top"></div>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
