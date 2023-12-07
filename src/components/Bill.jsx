@@ -149,7 +149,7 @@ const BillPDF = () => {
             >
               <Text style={styles.tickettext}>Total: </Text>
               <Text style={{ fontSize: "12px", fontWeight: "bold" }}>
-                ${invoicedata.total / invoicedata.ticketcount || 0.0}
+                $ {invoicedata.total / invoicedata.ticketcount || 0.0}
               </Text>
             </View>
           </View>
@@ -298,19 +298,19 @@ const BillPDF = () => {
                       <Text>{eventdata.Type || "-----"}</Text>
                     </View>
                     <View style={{ ...styles.column, ...{ width: "60px" } }}>
-                      <Text>X{invoicedata.ticketcount || "----"}</Text>
+                      <Text>X {invoicedata.ticketcount || "----"}</Text>
                     </View>
                     <View style={{ ...styles.column, ...{ width: "70px" } }}>
-                      <Text>${invoicedata.normalPrice || "----"}</Text>
+                      <Text>$ {invoicedata.normalPrice || "----"}</Text>
                     </View>
                     <View style={{ ...styles.column, ...{ width: "70px" } }}>
                       <Text>
-                        ${invoicedata.disamt} ({invoicedata.dispercent || 0}
+                        $ {invoicedata.disamt} ({invoicedata.dispercent || 0}
                         %)
                       </Text>
                     </View>
                     <View style={{ ...styles.column, ...{ width: "80px" } }}>
-                      <Text>${invoicedata.total || "----"}</Text>
+                      <Text>$ {invoicedata.total || "----"}</Text>
                     </View>
                   </View>
                   <View
@@ -334,7 +334,7 @@ const BillPDF = () => {
                           padding: "15px 0",
                         }}
                       >
-                        Invoice Total :USD $
+                        Invoice Total : USD ${"  "}
                         {invoicedata.total || "--------------"}
                       </Text>
                     </View>
