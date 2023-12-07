@@ -58,9 +58,6 @@ const BillPDF = () => {
     window.location.reload();
   };
 
-  console.log(userinfo);
-  console.log(eventdata);
-
   let numoftickets = invoicedata.ticketcount;
   const renderTickets = () => {
     return Array.from({ length: numoftickets }, (_, index) => (
@@ -152,7 +149,7 @@ const BillPDF = () => {
             >
               <Text style={styles.tickettext}>Total: </Text>
               <Text style={{ fontSize: "12px", fontWeight: "bold" }}>
-                ${invoicedata.normalPrice || 0.0}
+                ${invoicedata.total / invoicedata.ticketcount || 0.0}
               </Text>
             </View>
           </View>
@@ -308,8 +305,7 @@ const BillPDF = () => {
                     </View>
                     <View style={{ ...styles.column, ...{ width: "70px" } }}>
                       <Text>
-                        ${invoicedata.disamt} (
-                        {invoicedata.dispercent || "----"}
+                        ${invoicedata.disamt} ({invoicedata.dispercent || 0}
                         %)
                       </Text>
                     </View>
