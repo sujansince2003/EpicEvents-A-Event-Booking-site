@@ -1,13 +1,10 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { EventContext } from "../../App";
 
-function EventDetails({
-  eventdata,
-  ticketcount,
-  setticketcount,
-  price,
-  settotalprice,
-}) {
+function EventDetails() {
+  const { eventdata, ticketcount, setticketcount, price, settotalprice } =
+    useContext(EventContext);
   // using useCallback to prevent unnecessary re-creation of the function as we are receiving dependency array items as props
   const calculateTotalPrice = useCallback(() => {
     settotalprice(price * ticketcount);

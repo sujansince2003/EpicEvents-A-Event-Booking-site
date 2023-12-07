@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { EventContext } from "../../App";
+
 import Card from "./Card";
-function Home({ events, setEventdata, error }) {
+function Home() {
+  const { events, setEventdata, error } = useContext(EventContext);
   return (
     <>
       <section className="hero">

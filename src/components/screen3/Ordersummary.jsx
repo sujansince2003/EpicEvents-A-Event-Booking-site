@@ -1,16 +1,19 @@
 import FormComp from "./FormComp";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { EventContext } from "../../App";
 
-function Ordersummary({
-  totalprice,
-  price,
-  eventdata,
-  ticketcount,
-  setuserinfo,
-  userinfo,
-  invoicedata,
-  setinvoicedata,
-}) {
+function Ordersummary() {
+  const {
+    totalprice,
+    price,
+    eventdata,
+    ticketcount,
+    setuserinfo,
+    userinfo,
+    invoicedata,
+    setinvoicedata,
+  } = useContext(EventContext);
   let normalPrice = price;
   let dispercent = 5;
   let subtotal = totalprice;

@@ -6,7 +6,6 @@ function Card({
   EventDate = "Dec 20, ",
   setEventdata,
 }) {
-  //   console.log(Event);
   const navigate = useNavigate();
   return (
     <div

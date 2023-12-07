@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { EventContext } from "../App";
 import {
   PDFViewer,
   Document,
@@ -10,7 +12,8 @@ import {
   StyleSheet,
 } from "@react-pdf/renderer";
 
-const BillPDF = ({ userinfo, eventdata, invoicedata }) => {
+const BillPDF = () => {
+  const { userinfo, eventdata, invoicedata } = useContext(EventContext);
   const navigate = useNavigate();
 
   const redirectToHome = () => {
