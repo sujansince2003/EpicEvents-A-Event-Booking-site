@@ -8,6 +8,8 @@
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
 ![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![React Router](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router)
+![React-Hook=Form](https://img.shields.io/badge/-React%20Hook%20Form-CA4245?)
 
 <!-- PROJECT LOGO -->
 <br />
