@@ -1,24 +1,24 @@
-                                     # Forkify - A Recipe Finding Web app 
+                                     # EpicEvents-A Event Booking Site
 #### Date of completion: 13 Aug 2023 |
 <div id="top"></div>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-
 ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
+![React](https://shields.io/badge/react-black?logo=react&style=for-the-badge&logo=babel&logoColor=white)
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://forkify-suzancodes.netlify.app/">
+  <a href="https://epicevents-suzancodes.netlify.app/">
     <img src="/public/assets/logo.png" alt="Logo" height="80"  >
   </a>
-  <h1 align="center">Forkify</h1>
+  <h1 align="center">EpicEvents</h1>
 
   <p align="center">
-    <a href="https://modern-forkify.vercel.app/">View Demo</a>
+    <a href="https://epicevents-suzancodes.netlify.app/">View Demo</a>
     ·
 
   </p>
