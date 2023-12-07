@@ -1,8 +1,10 @@
+import BillingComponent from "../Billcomp";
+
 import Card from "./Card";
 function Home({ events, setEventdata }) {
   return (
     <>
-      <section className="hero">
+      {/* <section className="hero">
         {events.map((Event) => (
           <Card
             key={Event.imdbID}
@@ -12,7 +14,8 @@ function Home({ events, setEventdata }) {
             setEventdata={setEventdata}
           />
         ))}
-      </section>
+      </section> */}
+      <BillingComponent />
     </>
   );
 }

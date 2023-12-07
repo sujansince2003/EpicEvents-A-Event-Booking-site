@@ -15,12 +15,17 @@ function Ordersummary({ totalprice, price, eventdata, ticketcount }) {
   const [userinfo, setuserinfo] = useState();
 
   console.log(userinfo);
+
   return (
     <section className="hero3">
-      <pre>{JSON.stringify(userinfo, undefined, 2)}</pre>
+      {/* <pre>{JSON.stringify(userinfo, undefined, 2)}</pre> */}
+
       <div className="breadcumb">
         <p className="breadcumb-text">
-          Home /{" "}
+          <span>
+            <NavLink to="/">Home</NavLink>
+          </span>{" "}
+          /
           <span>
             <NavLink to="/">Explore events</NavLink>
           </span>{" "}

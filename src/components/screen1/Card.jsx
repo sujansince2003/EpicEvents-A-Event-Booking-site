@@ -16,6 +16,7 @@ function Card({
           ...Event,
           EventLocation,
           EventDate,
+          data: true,
         };
         setEventdata(() => eventdetail);
         navigate("details");
