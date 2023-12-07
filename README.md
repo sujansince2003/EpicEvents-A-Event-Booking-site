@@ -1,3 +1,36 @@
+                                     # EpicEvents-A Event Booking Site
+
+#### Date of completion: 7 Dec 2023 |
+
+#### Check Live Website: https://epicevents-suzancodes.netlify.app/ |
+
+<div id="top"></div>
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
+![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![React Router](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router)
+![React-Hook=Form](https://img.shields.io/badge/-React%20Hook%20Form-CA4245?)
+![Netlify](https://img.shields.io/badge/-Netlify-CA4245?)
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://epicevents-suzancodes.netlify.app/">
+    <img src="/public/assets/logo.png" alt="Logo" height="80"  >
+  </a>
+  <h1 align="center">EpicEvents</h1>
+
+  <p align="center">
+    <a href="https://epicevents-suzancodes.netlify.app/">View Demo</a>
+    ·
+
+  </p>
+</div>
+
 ## Introduction
 
 This is a React app that allows users to search for movies and purchase tickets for upcoming events. The app includes the following features:
@@ -33,7 +66,7 @@ Sure, here's a step-by-step README for running a React app built with Create Rea
 
    - If the project is hosted on GitHub, you can clone it using `git clone` command:
      ```bash
-     git clone https://github.com/username/project-name.git
+     git clone https://github.com/sujansince2003/Epic-Events-assignment.git
      ```
    - Alternatively, you can download and extract the project ZIP file from its repository.
 
@@ -46,29 +79,25 @@ Sure, here's a step-by-step README for running a React app built with Create Rea
 
 3. **Install dependencies**:
 
-   - Use npm or Yarn to install the required dependencies for the project:
-     - If using npm:
-       ```bash
+   - Use npm or Yarn to install the required dependencies for the project: - If using npm:
+     `bash
        npm install
-       ```
-     - If using Yarn:
-       `bash
+       ` - If using Yarn:
+     `bash
 yarn install
 `
-       This will install all the necessary packages mentioned in the `package.json` file.
+     This will install all the necessary packages mentioned in the `package.json` file.
 
 4. **Start the development server**:
 
-   - After installing dependencies, start the development server:
-     - If using npm:
-       ```bash
+   - After installing dependencies, start the development server: - If using npm:
+     `bash
        npm start
-       ```
-     - If using Yarn:
-       `bash
+       ` - If using Yarn:
+     `bash
 yarn start
 `
-       This command will start the development server and open the app in your default web browser at `http://localhost:3000`. Any changes you make in the code will automatically refresh the app in the browser.
+     This command will start the development server and open the app in your default web browser at `http://localhost:3000`. Any changes you make in the code will automatically refresh the app in the browser.
 
 5. **View the React app**:
 
@@ -79,16 +108,14 @@ yarn start
    - To stop the development server, go to the terminal where the server is running and press `Ctrl + C`.
 
 7. **Build the app for production (optional)**:
-   - When you're ready to deploy the app, you can create an optimized production build using:
-     - If using npm:
-       ```bash
+   - When you're ready to deploy the app, you can create an optimized production build using: - If using npm:
+     `bash
        npm run build
-       ```
-     - If using Yarn:
-       `bash
+       ` - If using Yarn:
+     `bash
 yarn build
 `
-       This command will create a `build` folder containing optimized static files ready to be deployed to a web server.
+     This command will create a `build` folder containing optimized static files ready to be deployed to a web server.
 
 That's it! You should now have your React app up and running on your local machine.
 
