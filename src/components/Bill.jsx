@@ -11,7 +11,37 @@ import {
   View,
   StyleSheet,
 } from "@react-pdf/renderer";
-
+/**
+ * @description
+ * this one was challenging  and something i tried for first time.for generating PDF i am using react-pdf library
+ * it has rendering components that includes
+ * PDF Rendering Components
+ *    - <Document>: Defines the root component for the PDF document.
+ *    - <Page>: Represents a single page within the PDF document.
+ *    - <Text>: Component to render text content within a PDF page.
+ *    - <View>: General-purpose component for layout and structuring within a page.
+ *    - <Image>: Renders images within the PDF document.
+ * for styling we use css styles object.text, images, and other elements can be added dynamically based on application data.
+ *
+ *  a button with Home icon is placed in top of component which redirect to home page by reloading the page so that all states are reset to initial value
+ * if user want to maintain same state then user can redirect to homepage from home button on nav bar or clicking in logo
+ *
+ * with this library i was able to generate pdf based on the data i have
+ *   this includes customer details along with order date which is updated acording to current date
+ *   billing detail including price,VAT,discount,totalAmount
+ *   number of ticket based on number of ticket for eg if 3 tickets are booked 3 tickets are generated
+ *   if user direcly visit this component without visting previous page,blank or dummy data is rendered
+ *
+ * @param {object}  userinfo  includes data related to user i.e name,address,country,etc which was received from form
+ * @param {object}  evendata  includes data related to movie i.e title,poster,event date,event location etc which was selected by user received from API
+ * @param {object}  invoicedata  includes data related to billing i.e price,number of ticket,VAT,discount etc which was received from orderSummary component
+ *
+ * @returns Invoice pdf
+ *
+ *
+ *
+ *
+ */
 const BillPDF = () => {
   const { userinfo, eventdata, invoicedata } = useContext(EventContext);
   const navigate = useNavigate();
@@ -23,7 +53,7 @@ const BillPDF = () => {
     if (!confirm) return;
     // Redirect to the home page
     navigate("/");
-    // Reload the home page so that all states are reset
+    // Reload the home page so that all states are reset to initial values
 
     window.location.reload();
   };
@@ -365,32 +395,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     backgroundColor: "rgba(247, 248, 249, 1)",
-
-    // borderBottomWidth: 1,
-    // borderBottomColor: "transparent",
-    // borderBottomStyle: "solid",
     fontSize: "10px",
     textAlign: "center",
     padding: "10px 0px",
   },
   column: {
-    // width: "16.67%", // 100% divided by 6 columns
-    // borderRightWidth: 1,
-    // borderRightColor: "#000",
-    // borderRightStyle: "solid"
     padding: 5,
     textAlign: "center",
-  },
-  movieDetails: {
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  movieDetail: {
-    marginBottom: 5,
-  },
-  header: {
-    fontWeight: "bold",
-    marginBottom: 10,
   },
 });
 

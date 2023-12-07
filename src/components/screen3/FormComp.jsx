@@ -9,6 +9,7 @@ const countries = [
   "United Kingdom",
   "Australia",
 ];
+// to get current date in year-month-day format
 function getFormattedDate() {
   const today = new Date();
   const year = today.getFullYear();
@@ -18,14 +19,22 @@ function getFormattedDate() {
   const formattedDate = `${year}-${month}-${day}`;
   return formattedDate;
 }
-
-function FormComp({
-  setuserinfo,
-  createOrdersummary,
-  userinfo,
-  eventdata,
-  invoicedata,
-}) {
+/**
+ * this component renders the form for user.it include form validations
+ *
+ *
+ * @challanges faced
+ *   Form validation : for form validation i used react-Hook-form which helps to validate the input data and get the input data object.this also helps to handle form submission event.with form validation user cannot redirect to another page until form is validated.useNavigate is used to redirect to Invoice PDF.the data from form is set to userinfo so that invoice can be rendered based on it
+ *
+ *
+ *   Handling form submission from button outside the form element ::: this was quite simple but it took me long time to figure out.simple solution was giving id to form element and again using that id in button to hanlde submit from button that is in Ordersummary component.
+ *
+ *
+ * @param {function} setuserinfo   set the user info from the form data
+ * @param  {function}  createOrdersummary  create data related to price,ticketnumber etc
+ * @returns
+ */
+function FormComp({ setuserinfo, createOrdersummary }) {
   const navigate = useNavigate();
   // handling form validation with react-hook-form
   const {

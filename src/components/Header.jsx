@@ -1,5 +1,10 @@
 import { NavLink } from "react-router-dom";
+/**
+ * This component renders Nav Bar along with auth-buttons i.e login and register
+ * @description
 
+ * @returns {ReactNode} A React element that renders nav bar and auth buttons
+ */
 export default function Header() {
   return (
     <>

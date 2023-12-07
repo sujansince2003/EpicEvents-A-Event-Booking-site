@@ -1,8 +1,23 @@
 import FormComp from "./FormComp";
-import { NavLink } from "react-router-dom";
+import Breadcumb from "./BreadCumb";
 import { useContext } from "react";
 import { EventContext } from "../../App";
 
+/**
+ * @description
+ * this component is responsible for calculating order details like normalprice,discount amount,VAT amount and TotalPrice
+ * this handle the form data submission along with all datas and prices needed for building invoice pdf and checkout
+ *
+ *
+ * @param {number} totalprice it is normal price which is multiple of ticket numebr and normal price of single ticket
+ * @param {number}  price    normal price of single ticket
+ * @param {object}  evendata  data object of movie which is being booked like title,poster,EventLocation,EventDate
+ * @param {number}  ticketcount  total number of ticket being booked
+ * @param {function}  setuserinfo  setter function which sets data of person booking ticket inlcuding name,adderss,country
+ * @param {function}  setinvoicedata  setter function which sets invoice data such as price,vat,discount,totalprice etc
+ *
+ *
+ *  */
 function Ordersummary() {
   const {
     totalprice,
@@ -10,14 +25,12 @@ function Ordersummary() {
     eventdata,
     ticketcount,
     setuserinfo,
-    userinfo,
-    invoicedata,
     setinvoicedata,
   } = useContext(EventContext);
-  let normalPrice = price;
-  let dispercent = 5;
+  let normalPrice = price; //get the price which is multiple of no. of ticket and price of single ticket
+  let dispercent = 0; //can be change
   let subtotal = totalprice;
-  let taxamt = (13 / 100) * subtotal;
+  let taxamt = (13 / 100) * subtotal; //calculating VAT
   let disamt = dispercent > 0 ? (dispercent / 100) * (subtotal + taxamt) : 0;
   let total = subtotal + taxamt - disamt;
 
@@ -31,35 +44,13 @@ function Ordersummary() {
       disamt,
       total,
     };
-    console.log(summary);
+
     setinvoicedata(summary);
-    // console.log(summaryObject);
-    // setSummaryObject(summary);
   }
-  console.log(invoicedata);
+
   return (
     <section className="hero3">
-      {/* <pre>{JSON.stringify(userinfo, undefined, 2)}</pre> */}
-      {/* <button onClick={createOrdersummary}>make summart</button> */}
-      <div>{invoicedata.normalPrice}</div>
-      <div className="breadcumb">
-        <p className="breadcumb-text">
-          <span>
-            <NavLink to="/">Home</NavLink>
-          </span>{" "}
-          /
-          <span>
-            <NavLink to="/">Explore events</NavLink>
-          </span>{" "}
-          /
-          <span>
-            <NavLink to="/details">
-              {eventdata.Title || "Select from Home"}
-            </NavLink>
-          </span>
-          /<span className="checkout-txt">Checkout</span>
-        </p>
-      </div>
+      <Breadcumb eventdata={eventdata} />
       <div className="order-info">
         <div>
           <p className="order-info-confirm">Order Confirmation</p>
@@ -71,9 +62,6 @@ function Ordersummary() {
             <FormComp
               setuserinfo={setuserinfo}
               createOrdersummary={createOrdersummary}
-              userinfo={userinfo}
-              eventdata={eventdata}
-              invoicedata={invoicedata}
             />
           </div>
 
@@ -129,6 +117,8 @@ function Ordersummary() {
             </div>
             <hr className="hr-4" />
             <button type="submit" form="a-form" className="checkout-btn">
+              {" "}
+              {/*handling form submission from this button which is not inside form element using id i,e a-form which is given to form element   */}
               Confirm & Pay
             </button>
           </div>
