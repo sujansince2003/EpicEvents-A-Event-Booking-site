@@ -1,5 +1,5 @@
                                      # EpicEvents-A Event Booking Site
-#### Date of completion: 13 Aug 2023 |
+#### Date of completion: 7 Dec 2023 |
 <div id="top"></div>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
