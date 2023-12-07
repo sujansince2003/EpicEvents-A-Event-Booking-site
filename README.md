@@ -1,8 +1,9 @@
                                      # EpicEvents-A Event Booking Site
 
+<div>
 #### Date of completion: 7 Dec 2023 |
-
 #### Check Live Website: https://epicevents-suzancodes.netlify.app/ |
+</div>
 
 <div id="top"></div>
 
