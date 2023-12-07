@@ -1,5 +1,6 @@
                                      # EpicEvents-A Event Booking Site
-#### Date of completion: 7 Dec 2023 |
+#### Date of completion: 7 Dec 2023 | 
+#### Check Live Website: https://epicevents-suzancodes.netlify.app/ |
 <div id="top"></div>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -10,6 +11,7 @@
 ![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![React Router](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router)
 ![React-Hook=Form](https://img.shields.io/badge/-React%20Hook%20Form-CA4245?)
+![Netlify](https://img.shields.io/badge/-Netlify-CA4245?)
 
 <!-- PROJECT LOGO -->
 <br />
