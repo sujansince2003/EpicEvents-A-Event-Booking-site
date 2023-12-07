@@ -12,22 +12,41 @@ import BillPDF from "./components/Bill";
 
 const API_URL = "https://www.omdbapi.com/?apikey=35f704b1";
 function App() {
+  const [error, setError] = useState(null);
   const [events, setEvents] = useState([]); //events i.e movie here are fetched from API
   const [eventdata, setEventdata] = useState({}); //setting state for screen 2 i.e for individual eventdetails and ticketing
-  const [userinfo, setuserinfo] = useState();
+  const [userinfo, setuserinfo] = useState({});
+  const [invoicedata, setinvoicedata] = useState({});
   let price = 500;
   const [ticketcount, setticketcount] = useState(1);
   const [totalprice, settotalprice] = useState(price);
   console.log(totalprice);
-  const searchEvents = async (title) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
-    setEvents(data.Search);
-  };
 
   useEffect(() => {
-    searchEvents("avengers");
-  }, []);
+    const searchEvents = async (title) => {
+      try {
+        const response = await fetch(`${API_URL}&s=${title}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setEvents(data.Search || []); // Update events state with fetched data
+        setError(null); // Reset error state if the fetch is successful
+      } catch (error) {
+        setError(
+          "Failed to fetch data. Please try again.Trying reloading the page or Check your connection"
+        ); // Set error message
+        setEvents([]); // Reset events state in case of an error
+      }
+    };
+
+    searchEvents("avengers"); // Trigger API request on component mount
+  }, []); // Empty dependency array ensures the effect runs only once on mount
+
+  // console.log(userinfo);
+  // console.log(eventdata);
+  console.log(ticketcount);
+
   return (
     <>
       <BrowserRouter>
@@ -35,7 +54,9 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home events={events} setEventdata={setEventdata} />}
+            element={
+              <Home events={events} setEventdata={setEventdata} error={error} />
+            }
           />
           <Route
             path="/details"
@@ -59,12 +80,21 @@ function App() {
                 eventdata={eventdata}
                 ticketcount={ticketcount}
                 setuserinfo={setuserinfo}
+                invoicedata={invoicedata}
+                setinvoicedata={setinvoicedata}
+                userinfo={userinfo}
               />
             }
           />
           <Route
             path="details/checkout/invoice"
-            element={<BillPDF userinfo={userinfo} eventdata={eventdata} />}
+            element={
+              <BillPDF
+                userinfo={userinfo}
+                eventdata={eventdata}
+                invoicedata={invoicedata}
+              />
+            }
           />
         </Routes>
       </BrowserRouter>

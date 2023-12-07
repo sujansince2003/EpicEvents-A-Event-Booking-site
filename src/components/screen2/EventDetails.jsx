@@ -20,6 +20,7 @@ function EventDetails({
   const navigate = useNavigate();
 
   //   console.log(eventdata);
+
   return (
     <section className="hero1">
       {eventdata.Title ? (

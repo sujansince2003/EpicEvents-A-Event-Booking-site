@@ -252,9 +252,7 @@ hr {
 .hero3 {
   background-color: rgba(28, 28, 36, 1);
 }
-NavLink {
-  text-decoration: none;
-}
+
 .breadcumb {
   padding: 24px 100px;
   background-color: rgba(37, 45, 60, 1);
@@ -411,4 +409,12 @@ select {
 .moneyline-total-amt {
   font-size: 24px;
   line-height: 32px;
+}
+.gotohome {
+  background-color: #323639;
+}
+.gotohome img {
+  width: 20px;
+  margin: 0 5px;
+  cursor: pointer;
 }

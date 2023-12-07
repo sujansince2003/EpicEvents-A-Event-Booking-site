@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   PDFViewer,
   Document,
@@ -9,13 +10,29 @@ import {
   StyleSheet,
 } from "@react-pdf/renderer";
 
-const BillPDF = ({ userinfo, eventdata }) => {
+const BillPDF = ({ userinfo, eventdata, invoicedata }) => {
+  const navigate = useNavigate();
+
+  const redirectToHome = () => {
+    const confirm = window.confirm(
+      "Are you sure want to get back to HomePage? All data will be reset to initial values"
+    );
+    if (!confirm) return;
+    // Redirect to the home page
+    navigate("/");
+    // Reload the home page so that all states are reset
+
+    window.location.reload();
+  };
+
   console.log(userinfo);
   console.log(eventdata);
-  let num = 5;
+
+  let numoftickets = invoicedata.ticketcount;
   const renderTickets = () => {
-    return Array.from({ length: num }, (_, index) => (
+    return Array.from({ length: numoftickets }, (_, index) => (
       <View
+        key={index}
         style={{
           borderTop: "2px dotted black",
           marginTop: "50px",
@@ -48,7 +65,7 @@ const BillPDF = ({ userinfo, eventdata }) => {
 
                 objectFit: "cover",
               }}
-              src="https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+              src={eventdata.Poster || "/assets/ticketicon.png"}
             />
           </View>
           <View
@@ -67,11 +84,13 @@ const BillPDF = ({ userinfo, eventdata }) => {
                   fontWeight: "bold",
                 }}
               >
-                Ant man and quantamania
+                {eventdata.Title || "select from home page"}
               </Text>
             </View>
             <View>
-              <Text style={styles.tickettext}>Sat, Apr 30, 2022 11:30 AM</Text>
+              <Text style={styles.tickettext}>
+                Sat, {eventdata.EventDate} 11:30 AM
+              </Text>
             </View>
             <View
               style={{
@@ -86,9 +105,9 @@ const BillPDF = ({ userinfo, eventdata }) => {
                   width: "15px",
                   height: "auto",
                 }}
-                src="assets/ticketicon.png"
+                src="/assets/ticketicon.png"
               />
-              <Text style={styles.tickettext}>X1</Text>
+              <Text style={styles.tickettext}>X 1</Text>
             </View>
             <View
               style={{
@@ -100,7 +119,7 @@ const BillPDF = ({ userinfo, eventdata }) => {
             >
               <Text style={styles.tickettext}>Total: </Text>
               <Text style={{ fontSize: "12px", fontWeight: "bold" }}>
-                $5000
+                ${invoicedata.normalPrice || 0.0}
               </Text>
             </View>
           </View>
@@ -112,175 +131,200 @@ const BillPDF = ({ userinfo, eventdata }) => {
   };
 
   return (
-    <PDFViewer style={{ width: "100%", height: "100vh" }}>
-      <Document>
-        <Page size={{ width: 595, height: 1000 }} style={styles.page}>
-          <View
-            style={{
-              backgroundColor: "red",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: "20px",
-                padding: "20px",
-                letterSpacing: "1px",
-              }}
-            >
-              Epic Events
-            </Text>
-          </View>
-
-          <View
-            style={{
-              padding: "20px ",
-            }}
-          >
-            {/*Container  */}
-            <Text
-              style={{
-                paddingBottom: "20px",
-              }}
-            >
-              Invoice
-            </Text>
+    <>
+      <div className="gotohome">
+        <img
+          title="Cliking on this will redirect to homepage and reset all data to initial values"
+          onClick={redirectToHome}
+          src="/assets/home.png"
+          alt=""
+        />
+      </div>
+      <PDFViewer style={{ width: "100%", height: "100vh" }}>
+        <Document>
+          <Page size={{ width: 595, height: 1000 }} style={styles.page}>
             <View
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
+                backgroundColor: "red",
               }}
             >
-              <View
+              <Text
                 style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
+                  fontSize: "20px",
+                  padding: "20px",
+                  letterSpacing: "1px",
                 }}
               >
-                <Text style={styles.invoicetext}>Invoice Id:4324523423</Text>
-                <Text style={styles.invoicetext}>Invoice Id:4324523423</Text>
-              </View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Text style={styles.invoicetext}>Invoice Id:4324523423</Text>
-                <Text style={styles.invoicetext}>Invoice Id:4324523423</Text>
-              </View>
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Text style={styles.invoicetext}>Invoice Id:4324523423</Text>
-                {/* <Text style={styles.invoicetext}>Invoice Id:4324523423</Text> */}
-              </View>
-
-              {/* form */}
-              <View style={styles.table}>
-                {/* First row */}
-                <View
-                  style={{
-                    ...styles.row,
-                    ...{ borderTopLeftRadius: 10, borderTopRightRadius: 10 },
-                  }}
-                >
-                  <View style={{ ...styles.column, ...{ width: "30px" } }}>
-                    <Text>#</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "160px" } }}>
-                    <Text>Event detail</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "80px" } }}>
-                    <Text>Event-type</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "60px" } }}>
-                    <Text>Ticket</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "70px" } }}>
-                    <Text>Unit Price</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "70px" } }}>
-                    <Text>Discount</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "80px" } }}>
-                    <Text>Total</Text>
-                  </View>
-                </View>
-                {/* Second row */}
-                <View
-                  style={{
-                    ...styles.row,
-                    ...{ backgroundColor: "white" },
-                  }}
-                >
-                  <View style={{ ...styles.column, ...{ width: "30px" } }}>
-                    <Text>1</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "160px" } }}>
-                    <Text>Ant man and quantamania</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "80px" } }}>
-                    <Text>movie</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "60px" } }}>
-                    <Text>X2</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "70px" } }}>
-                    <Text>$500</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "70px" } }}>
-                    <Text>00</Text>
-                  </View>
-                  <View style={{ ...styles.column, ...{ width: "80px" } }}>
-                    <Text>1130</Text>
-                  </View>
-                </View>
-                <View
-                  style={{
-                    ...styles.row,
-                    ...{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      backgroundColor: "white",
-                      borderBottomLeftRadius: 10,
-                      borderBottomRightRadius: 10,
-                      borderTop: "0.5px solid rgba(85, 105, 135, 1)",
-                    },
-                  }}
-                >
-                  <View style={{ ...styles.column, ...{ width: "200px" } }}>
-                    <Text
-                      style={{
-                        fontSize: "12px",
-                        fontWeight: "bold",
-                        padding: "15px 0",
-                      }}
-                    >
-                      Invoice Total :USD $11120
-                    </Text>
-                  </View>
-                </View>
-              </View>
+                Epic Events
+              </Text>
             </View>
-            {/* main ticket container */}
-            <View>
-              {/* ticket */}
 
-              {renderTickets()}
-              {/* ticket end here */}
+            <View
+              style={{
+                padding: "20px ",
+              }}
+            >
+              {/*Container  */}
+              <Text
+                style={{
+                  paddingBottom: "20px",
+                }}
+              >
+                Invoice
+              </Text>
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text style={styles.invoicetext}>
+                    Invoice to {userinfo.fname || "--------------"}
+                  </Text>
+                  <Text style={styles.invoicetext}>
+                    Invoice ID : {eventdata.imdbID || "---------"}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text style={styles.invoicetext}>
+                    {userinfo.address || "--------"},
+                    {userinfo.city || "----------"}
+                  </Text>
+                  <Text style={styles.invoicetext}>
+                    Order Date: {userinfo.currentDate || "--------------"}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text style={styles.invoicetext}>
+                    {userinfo.state},{userinfo.country || "--------------"}
+                  </Text>
+                </View>
+
+                {/* form */}
+                <View style={styles.table}>
+                  {/* First row */}
+                  <View
+                    style={{
+                      ...styles.row,
+                      ...{ borderTopLeftRadius: 10, borderTopRightRadius: 10 },
+                    }}
+                  >
+                    <View style={{ ...styles.column, ...{ width: "30px" } }}>
+                      <Text>#</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "160px" } }}>
+                      <Text>Event detail</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "80px" } }}>
+                      <Text>Event-type</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "60px" } }}>
+                      <Text>Ticket</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "70px" } }}>
+                      <Text>Unit Price</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "70px" } }}>
+                      <Text>Discount</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "80px" } }}>
+                      <Text>Total</Text>
+                    </View>
+                  </View>
+                  {/* Second row */}
+                  <View
+                    style={{
+                      ...styles.row,
+                      ...{ backgroundColor: "white" },
+                    }}
+                  >
+                    <View style={{ ...styles.column, ...{ width: "30px" } }}>
+                      <Text>1</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "160px" } }}>
+                      <Text>{eventdata.Title || "-----"}</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "80px" } }}>
+                      <Text>{eventdata.Type || "-----"}</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "60px" } }}>
+                      <Text>X{invoicedata.ticketcount || "----"}</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "70px" } }}>
+                      <Text>${invoicedata.normalPrice || "----"}</Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "70px" } }}>
+                      <Text>
+                        ${invoicedata.disamt} (
+                        {invoicedata.dispercent || "----"}
+                        %)
+                      </Text>
+                    </View>
+                    <View style={{ ...styles.column, ...{ width: "80px" } }}>
+                      <Text>${invoicedata.total || "----"}</Text>
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      ...styles.row,
+                      ...{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        backgroundColor: "white",
+                        borderBottomLeftRadius: 10,
+                        borderBottomRightRadius: 10,
+                        borderTop: "0.5px solid rgba(85, 105, 135, 1)",
+                      },
+                    }}
+                  >
+                    <View style={{ ...styles.column, ...{ width: "200px" } }}>
+                      <Text
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                          padding: "15px 0",
+                        }}
+                      >
+                        Invoice Total :USD $
+                        {invoicedata.total || "--------------"}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              {/* main ticket container */}
+              <View>
+                {/* ticket */}
+
+                {renderTickets()}
+                {/* ticket end here */}
+              </View>
+              {/* main ticket container ends here */}
             </View>
-            {/* main ticket container ends here */}
-          </View>
-        </Page>
-      </Document>
-    </PDFViewer>
+          </Page>
+        </Document>
+      </PDFViewer>
+    </>
   );
 };
 

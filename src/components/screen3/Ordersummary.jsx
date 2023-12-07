@@ -8,8 +8,9 @@ function Ordersummary({
   ticketcount,
   setuserinfo,
   userinfo,
+  invoicedata,
+  setinvoicedata,
 }) {
-  console.log(eventdata);
   let normalPrice = price;
   let dispercent = 5;
   let subtotal = totalprice;
@@ -17,10 +18,27 @@ function Ordersummary({
   let disamt = dispercent > 0 ? (dispercent / 100) * (subtotal + taxamt) : 0;
   let total = subtotal + taxamt - disamt;
 
+  function createOrdersummary() {
+    const summary = {
+      ticketcount,
+      normalPrice,
+      dispercent,
+      subtotal,
+      taxamt,
+      disamt,
+      total,
+    };
+    console.log(summary);
+    setinvoicedata(summary);
+    // console.log(summaryObject);
+    // setSummaryObject(summary);
+  }
+  console.log(invoicedata);
   return (
     <section className="hero3">
       {/* <pre>{JSON.stringify(userinfo, undefined, 2)}</pre> */}
-
+      {/* <button onClick={createOrdersummary}>make summart</button> */}
+      <div>{invoicedata.normalPrice}</div>
       <div className="breadcumb">
         <p className="breadcumb-text">
           <span>
@@ -32,7 +50,9 @@ function Ordersummary({
           </span>{" "}
           /
           <span>
-            <NavLink to="/details">{eventdata.Title}</NavLink>
+            <NavLink to="/details">
+              {eventdata.Title || "Select from Home"}
+            </NavLink>
           </span>
           /<span className="checkout-txt">Checkout</span>
         </p>
@@ -45,7 +65,13 @@ function Ordersummary({
         <div className="box">
           <div className="infox">
             <h1>Information</h1>
-            <FormComp setuserinfo={setuserinfo} />
+            <FormComp
+              setuserinfo={setuserinfo}
+              createOrdersummary={createOrdersummary}
+              userinfo={userinfo}
+              eventdata={eventdata}
+              invoicedata={invoicedata}
+            />
           </div>
 
           <div className="summary">
@@ -59,6 +85,8 @@ function Ordersummary({
                 <p>Movie</p>
                 <img className="dot" src="/assets/dot.png" alt="" />
                 <p>{eventdata.EventLocation}</p>
+                <img className="dot" src="/assets/dot.png" alt="" />
+                <p>{eventdata.EventDate}</p>
               </div>
             </div>
             <hr className="hr-4" />

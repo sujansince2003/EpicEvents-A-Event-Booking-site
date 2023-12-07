@@ -4,7 +4,10 @@ export default function Header() {
   return (
     <>
       <header>
-        <img className="logo" src="/assets/logo4.png" alt="" />
+        <NavLink to="/">
+          <img className="logo" src="/assets/logo.png" alt="" />
+        </NavLink>
+
         <nav>
           <ul>
             <li>
