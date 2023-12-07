@@ -1,7 +1,7 @@
 import React from "react";
 import BillPDF from "./Bill";
 
-const BillingComponent = () => {
+const BillingComponent = ({ userinfo }) => {
   // Sample movie details, billing info, and total amount
   const movieDetails = [
     { title: "Movie 1", quantity: 2 },

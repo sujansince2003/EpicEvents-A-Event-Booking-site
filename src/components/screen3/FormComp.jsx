@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 // arrays of country for select input options
 const countries = [
   "Nepal",
@@ -9,6 +10,7 @@ const countries = [
 ];
 
 function FormComp({ setuserinfo }) {
+  const navigate = useNavigate();
   // handling form validation with react-hook-form
   const {
     register,
@@ -19,6 +21,10 @@ function FormComp({ setuserinfo }) {
   function onSubmit(data) {
     setuserinfo(data);
     console.log(data);
+    if (Object.keys(errors).length === 0) {
+      // Form is valid, navigate to the desired route
+      navigate("invoice");
+    }
   }
   return (
     <form id="a-form" onSubmit={handleSubmit(onSubmit)}>

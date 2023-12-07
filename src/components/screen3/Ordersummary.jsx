@@ -1,9 +1,14 @@
-import { useState } from "react";
-
 import FormComp from "./FormComp";
 import { NavLink } from "react-router-dom";
 
-function Ordersummary({ totalprice, price, eventdata, ticketcount }) {
+function Ordersummary({
+  totalprice,
+  price,
+  eventdata,
+  ticketcount,
+  setuserinfo,
+  userinfo,
+}) {
   console.log(eventdata);
   let normalPrice = price;
   let dispercent = 5;
@@ -11,10 +16,6 @@ function Ordersummary({ totalprice, price, eventdata, ticketcount }) {
   let taxamt = (13 / 100) * subtotal;
   let disamt = dispercent > 0 ? (dispercent / 100) * (subtotal + taxamt) : 0;
   let total = subtotal + taxamt - disamt;
-
-  const [userinfo, setuserinfo] = useState();
-
-  console.log(userinfo);
 
   return (
     <section className="hero3">

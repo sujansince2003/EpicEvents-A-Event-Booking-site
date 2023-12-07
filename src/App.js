@@ -7,10 +7,14 @@ import Header from "./components/screen1/Header";
 import Home from "./components/screen1/Home";
 import EventDetails from "./components/screen2/EventDetails";
 import Ordersummary from "./components/screen3/Ordersummary";
+// import BillingComponent from "./components/Billcomp";
+import BillPDF from "./components/Bill";
+
 const API_URL = "https://www.omdbapi.com/?apikey=35f704b1";
 function App() {
   const [events, setEvents] = useState([]); //events i.e movie here are fetched from API
   const [eventdata, setEventdata] = useState({}); //setting state for screen 2 i.e for individual eventdetails and ticketing
+  const [userinfo, setuserinfo] = useState();
   let price = 500;
   const [ticketcount, setticketcount] = useState(1);
   const [totalprice, settotalprice] = useState(price);
@@ -54,8 +58,13 @@ function App() {
                 totalprice={totalprice}
                 eventdata={eventdata}
                 ticketcount={ticketcount}
+                setuserinfo={setuserinfo}
               />
             }
+          />
+          <Route
+            path="details/checkout/invoice"
+            element={<BillPDF userinfo={userinfo} eventdata={eventdata} />}
           />
         </Routes>
       </BrowserRouter>
