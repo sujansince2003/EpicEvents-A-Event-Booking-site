@@ -33,7 +33,7 @@ Sure, here's a step-by-step README for running a React app built with Create Rea
 
    - If the project is hosted on GitHub, you can clone it using `git clone` command:
      ```bash
-     git clone https://github.com/username/project-name.git
+     git clone https://github.com/sujansince2003/Epic-Events-assignment.git
      ```
    - Alternatively, you can download and extract the project ZIP file from its repository.
 
